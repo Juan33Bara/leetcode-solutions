@@ -1,11 +1,11 @@
 # Approach
 <!-- Describe your approach to solving the problem. -->
--Create an integer array called **counter** that has 26 elements.
--Create a local variable called **accumulator**.
--Iterate over the **ransomNote** and , for each character, increment the corresponding index in the counter array. In **ASCII**, the character 'a' is represented by the number 97 and 'z' is represented by 122. Therefore, if you substract, for example, 'a' - 'a', you get 97 minus 97, which equals 0, and this result corresponds to the index in the **counter** array that represents the character 'a'.
--Iterate over the **magazine** and, for each character, first check if the value at that index in the **counter** array is zero. If it's not zero, then decrement that index.
--Iterate thruough the **counter** array and add each value to the **accumulator**.
--Check if the **accumulator** is zerom and return a boolean value based on that check.
+- Create an integer array called **counter** that has 26 elements.
+- Create a local variable called **accumulator**.
+- Iterate over the **ransomNote** and , for each character, increment the corresponding index in the counter array. In **ASCII**, the character 'a' is represented by the number 97 and 'z' is represented by 122. Therefore, if you substract, for example, 'a' - 'a', you get 97 minus 97, which equals 0, and this result corresponds to the index in the **counter** array that represents the character 'a'.
+- Iterate over the **magazine** and, for each character, first check if the value at that index in the **counter** array is zero. If it's not zero, then decrement that index.
+- Iterate thruough the **counter** array and add each value to the **accumulator**.
+- Check if the **accumulator** is zerom and return a boolean value based on that check.
 
 # Complexity
 - Time complexity: O(n + m + 26) = O(n + m)
