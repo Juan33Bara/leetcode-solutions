@@ -1,4 +1,4 @@
-# Solution 1 approach
+# Solution 1 approach (array + accumulator)
 <!-- Describe your approach to solving the problem. -->
 - Create an integer array called **counter** with 26 elements.
 - Create a local variable called **accumulator**.
@@ -43,7 +43,7 @@ class Solution1 {
 ```
 
 ---
-# Solution 2 Approach 
+# Solution 2 Approach (array + early exit)
 - This is a better solution because it has one less loop than Solution 1.
 - 
 # Solution 2 Complexity
@@ -80,5 +80,53 @@ class Solution2 {
 }
 ```
 ---
+# Solution 3 Approach (HashMap)
+- This solution uses HashMap to count character frequencies.
+- Very similar to Solution2 but uses HashMap instead of array, but the logic is practically
+# Solution 3 Complexity
+- Time complexity: O(n + m)
+  - 10 ms ; Beats 49.44%.
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
 
+- Space complexity: O(26) (worst case) = O(1) constant space
+  - 47.30 MB ; Beats 16.34%. 
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+
+# Solution 3 Code
+```java []
+// Solution using HashMap to count character frequencies
+import java.util.HashMap; // Import HashMap from java.util package.
+import java.util.Map; // Import Map interface from java.util package.
+
+class Solution3 {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        Map<Character, Integer> freq = new HashMap<>(); // Example 'a' --> 3, 'b' --> 5, etc. 
+
+        // 1) Count each character in magazine
+        for (int i = 0; i < magazine.length(); i++) {
+            char c = magazine.charAt(i); // Get character at index i
+            // The method put() inserts key-value pair into the map. If key already exists, it updates the value.
+            // The method getOrDefault() returns the value for the specified key, or a default value if the key is not found.
+            freq.put(c, freq.getOrDefault(c, 0) + 1); // Plus one occurrence of character c
+        }
+
+        // 2) Consume characters needed by ransomNote
+        for (int i = 0; i < ransomNote.length(); i++) {
+            char c = ransomNote.charAt(i);
+            int available = freq.getOrDefault(c, 0); // Get the value for key c, or 0 if not found
+
+            if (available == 0) return false; // not enough of that character
+
+            freq.put(c, available - 1); // spend one only if available > 0
+        }
+
+        return true;
+    }
+}
+```
+
+
+
+---
 ![baby.png](https://assets.leetcode.com/users/images/d33fa5c7-3a4f-4741-8d95-b473034b1ace_1767995712.945771.png)
