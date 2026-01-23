@@ -1,4 +1,4 @@
-
+// Using HashMap
 import java.util.HashMap;
 
 class Solution1{
