@@ -1,3 +1,4 @@
+// ARRAY SOLUTION
 public class Main1 {
     public static void main(String[] args) {
         Solution1 sol1 = new Solution1();
